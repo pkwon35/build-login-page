@@ -63,7 +63,7 @@ app.post('/api/users/login',(req,res)=>{
         
         user.comparePassword(req.body.password, (err,isMatch) =>{
             
-            if(!isMatch) return res.json({loginSucess:false,message:"비밀번호가 틀렸습니다."})
+            if(!isMatch) return res.json({loginSuccess:false,message:"비밀번호가 틀렸습니다."})
             //비밀번호가 맞다면 토큰 생성하기
             user.generateToken((err,user)=> {
                 if(err) return res.status(400).send(err);//400 은 무슨 에러가 있다는 뜻이다
@@ -71,7 +71,7 @@ app.post('/api/users/login',(req,res)=>{
                 // 토큰을 저장한다. 어디에 ? 쿠키, 로컬스토리지
                 res.cookie("x_auth",user.token)
                 .status(200)
-                .json({loginSucess:true, userId:user._id})
+                .json({loginSuccess:true, userId:user._id})
             })
         })
     })

@@ -26,9 +26,9 @@ function App() {
         */}
         <Switch>
           <Route exact path="/" component={LandingPage}/>
-          <Route path="/LoginPage" component = {LoginPage} />
+          <Route path="/login" component = {LoginPage} />
           
-          <Route path="/RegisterPage" component = {RegisterPage}/>
+          <Route path="/register" component = {RegisterPage}/>
         </Switch>
       </div>
     </Router>
