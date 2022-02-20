@@ -23,7 +23,7 @@ mongoose.connect(config.mongoURI)
 
 
 
-app.get('/',(req,res)=> res.send('Hello World!~ '))
+app.get('/',(req,res)=> res.send('WELCOME TO HOMEPAGE'))
 
 
 app.get('/api/hello',(req,res)=>
@@ -81,9 +81,9 @@ app.post('/api/users/login',(req,res)=>{
 
 app.get('/api/users/auth',auth,(req,res)=>{
     // 여기까지 미들웨어를 통화해 왔다는  Authentication 이 True
-    req.status(200).json({
+    res.status(200).json({
         _id:req.user._id,
-        isAdmin:req.user.role === 0? false : true,
+        isAdmin: req.user.role ===0 ? false : true,
         isAuth:true,
         email:req.user.email,
         name:req.user.name,
